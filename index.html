@@ -1,0 +1,41 @@
+<html>
+
+<head>
+<style>
+.yellow {
+    background: yellow;
+}
+</style>
+</head>
+
+
+<body>
+<input type="textfield" id="myInput">
+<input type="submit" id="myButton">
+
+<div id="myContent">
+<p>My name is Matt and I'm a web developer at SportsLabs and I like to drive fast cars and take photos and watch depressing tv shows. I hope I can search for some text in this paragraph and highlight it and pretend that I am a javascript master.</p>
+</div>
+</body>
+
+
+<script type="text/javascript">
+var myInput = document.getElementById("myInput"),
+    myButton = document.getElementById("myButton"),
+    myDiv = document.getElementById("myContent"),
+    myText = myDiv.innerHTML;
+
+
+myButton.addEventListener('click', function(event) {
+    myReplace(myInput.value);
+});
+
+function myReplace(value) {
+    var pattern = "("+value+")";
+    var re = new RegExp(pattern, "g");
+    var myMatch = myText.match(re);
+    myDiv.innerHTML = myText.replace(re, "<span class='yellow'>$1</span>");
+}
+</script>
+
+</html>
